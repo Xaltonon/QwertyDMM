@@ -8,3 +8,13 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+install:
+script:
+  - ./gradlew fatCapsule
+deploy:
+  provider: releases
+  api_key: "$RELEASE_TOKEN"
+  file: "build/libs/qwertydmm-1.10.2-capsule.jar"
+  skip_cleanup: true
+  on:
+    tags: true
